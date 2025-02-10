@@ -17,6 +17,11 @@ uop = {
     "IMM_WR_DB": 13,    # Immediate write Data Bus
     "WR_DB": 14,        # Write Data Bus (write data input to external devices)
     "RD_DB": 15,        # Read Data Bus
+    "RS0_WR_ALU_A": 16, # RS0 write ALU A
+    "RS1_WR_ALU_B": 17, # RS1 write ALU B
+    "ALU_OUT_WR_DB": 18,# ALU Out write Data Bus
+    "ALU_WR_FLAG":  19, # ALU write Flag Register
+
     "MEM_WE": 30,       # External memory write enable
     "MEM_OE": 31,       # External memory output enable
 }
@@ -85,6 +90,12 @@ instructions = {
         ["PC_INC", "PC_WR_ADDR", "IR2_RD_DB", "RD_DB", "MEM_OE"],
         ["RS_BUFFER", "RS_WR_ADDR"],
         ["RS_WR_ADDR", "RD_WR_DB", "WR_DB", "MEM_WE", "MCS_CLR"],
+    ],
+    0x5: [
+        ["PC_INC", "PC_WR_ADDR", "IR0_RD_DB", "RD_DB", "MEM_OE"],
+        ["PC_INC", "PC_WR_ADDR", "IR1_RD_DB", "RD_DB", "MEM_OE"],
+        ["PC_INC", "PC_WR_ADDR", "IR2_RD_DB", "RD_DB", "MEM_OE"],
+        ["RS0_WR_ALU_A", "RS1_WR_ALU_B", "ALU_OUT_WR_DB", "ALU_WR_FLAG", "RD_RD_DB", "MCS_CLR"]
     ]
 }
 
